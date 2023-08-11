@@ -82,7 +82,7 @@
     <div class="entry">
       
         <h1 id="BASE64编码简介"><a href="#BASE64编码简介" class="headerlink" title="BASE64编码简介"></a>BASE64编码简介</h1><p>​</p>
-<h3 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h3><p>　　BASE64是一种常用的可逆编码形式，常用于把二进制编码转换为字符形式的数据。编码后的字符串包含a-z、A-Z、0-9、+、&#x2F;，共64个字符。64个字符需要用6位来表示，从0开始表示成数字0-63。【其实共有65个字符，“&#x3D;”是填充字符，后面会说到。】</p>
+<h3 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h3><p>BASE64是一种常用的可逆编码形式，常用于把二进制编码转换为字符形式的数据。编码后的字符串包含a-z、A-Z、0-9、+、&#x2F;，共64个字符。64个字符需要用6位来表示，从0开始表示成数字0-63。【其实共有65个字符，“&#x3D;”是填充字符，后面会说到。】</p>
 <table>
    <tr>
       <td>码值</td>
@@ -252,7 +252,7 @@
    </tr>
 </table>
 
-<p>　　此时，长度为3个字节的数据经过编码后就会变成4个字节。</p>
+<p>此时，长度为3个字节的数据经过编码后就会变成4个字节。</p>
 <h3 id="2-举例"><a href="#2-举例" class="headerlink" title="2. 举例"></a>2. 举例</h3><h4 id="例1-：常规情况"><a href="#例1-：常规情况" class="headerlink" title="例1 ：常规情况"></a>例1 ：常规情况</h4><p>如：字符串“QUT”经过编码后就会变成“UVVU”。</p>
 <table>
    <tr>
@@ -295,7 +295,7 @@
 </table>
 
 <p>　　</p>
-<h4 id="例2-：结果包含等号的情况"><a href="#例2-：结果包含等号的情况" class="headerlink" title="例2 ：结果包含等号的情况"></a>例2 ：结果包含等号的情况</h4><p>　　长度为3的字节数位数为3×8&#x3D;24，刚好可以分成6×4。但如果数据的字节数不是3的倍数，则其位数就不是6的倍数，那么需要就不能精确地划分成6位的块。此时，需在原数据后面添加1个或2个零值字节，使其字节数是3的倍数。然后，在编码后的字符串后面添加1个或2个等号“&#x3D;”，用以表示所添加的零值字节数。</p>
+<h4 id="例2-：结果包含等号的情况"><a href="#例2-：结果包含等号的情况" class="headerlink" title="例2 ：结果包含等号的情况"></a>例2 ：结果包含等号的情况</h4><p>长度为3的字节数位数为3×8&#x3D;24，刚好可以分成6×4。但如果数据的字节数不是3的倍数，则其位数就不是6的倍数，那么需要就不能精确地划分成6位的块。此时，需在原数据后面添加1个或2个零值字节，使其字节数是3的倍数。然后，在编码后的字符串后面添加1个或2个等号“&#x3D;”，用以表示所添加的零值字节数。</p>
 <p>如：字符串“QU”经过编码后就会变成“UVU&#x3D;”。</p>
 <table>
    <tr>
@@ -394,6 +394,78 @@
 
     
 
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Misc/">Misc</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2018/09/04/matching-order-of-server-section-for-nginx/"><span>NGINX 中 SERVER 的匹配顺序</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2018/09/04/matching-order-of-server-section-for-nginx/" rel="bookmark">
+        <time class="entry-date published" datetime="2018-09-04T11:18:57.000Z">
+          2018-09-04
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>在开始处理一个http请求时，nginx会取出header头中的host，与nginx.conf中每个server的server_name进行匹配，以此决定到底由哪一个server块来处理这个请求。</p>
+<p>server_name与host匹配优先级如下：</p>
+<ol>
+<li>完全匹配</li>
+<li>通配符在前的，如*.test.com</li>
+<li>在后的，如<a target="_blank" rel="noopener" href="http://www.test/">www.test</a>.*</li>
+<li>正则匹配，如~^.www.test.com$</li>
+<li>如果都不匹配<ol>
+<li>优先选择listen配置项后有default或default_server的</li>
+<li>找到匹配listen端口的第一个server块</li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Misc/">Misc</a>
+    </span>
     
 
     </div>
