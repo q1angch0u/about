@@ -10,12 +10,10 @@
   
 
   
-  <meta name="description" content="在开始处理一个http请求时，nginx会取出header头中的host，与nginx.conf中每个server的server_name进行匹配，以此决定到底由哪一个server块来处理这个请求。
+  <meta name="description" content="Nginx 中 Server 的匹配顺序在开始处理一个http请求时，nginx会取出header头中的host，与nginx.conf中每个server的server_name进行匹配，以此决定到底由哪一个server块来处理这个请求。
 server_name与host匹配优先级如下：
 
-完全匹配
-通配符在前的，如*.test.com
-">
+完全匹配">
   
 
   
@@ -90,7 +88,7 @@ server_name与host匹配优先级如下：
   <div class="article-content">
     <div class="entry">
       
-        <p>在开始处理一个<code>http</code>请求时，<code>nginx</code>会取出<code>header</code>头中的<code>host</code>，与<code>nginx.conf</code>中每个server的<code>server_name</code>进行匹配，以此决定到底由哪一个<code>server</code>块来处理这个请求。</p>
+        <h1 id="Nginx-中-Server-的匹配顺序"><a href="#Nginx-中-Server-的匹配顺序" class="headerlink" title="Nginx 中 Server 的匹配顺序"></a>Nginx 中 Server 的匹配顺序</h1><p>在开始处理一个<code>http</code>请求时，<code>nginx</code>会取出<code>header</code>头中的<code>host</code>，与<code>nginx.conf</code>中每个server的<code>server_name</code>进行匹配，以此决定到底由哪一个<code>server</code>块来处理这个请求。</p>
 <p><code>server_name</code>与<code>host</code>匹配优先级如下：</p>
 <ol>
 <li>完全匹配</li>
