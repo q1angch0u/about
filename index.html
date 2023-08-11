@@ -415,7 +415,7 @@
 
   
     
-    <h3 class="article-title"><a href="/2018/09/04/matching-order-of-server-section-for-nginx/"><span>NGINX 中 SERVER 的匹配顺序</span></a></h3>
+    <h3 class="article-title"><a href="/2018/09/04/matching-order-of-server-section-for-nginx/"><span>Nginx 中 Server 的匹配顺序</span></a></h3>
     
   
 
@@ -435,16 +435,16 @@
   <div class="article-content">
     <div class="entry">
       
-        <p>在开始处理一个http请求时，nginx会取出header头中的host，与nginx.conf中每个server的server_name进行匹配，以此决定到底由哪一个server块来处理这个请求。</p>
-<p>server_name与host匹配优先级如下：</p>
+        <p>在开始处理一个<code>http</code>请求时，<code>nginx</code>会取出<code>header</code>头中的<code>host</code>，与<code>nginx.conf</code>中每个server的<code>server_name</code>进行匹配，以此决定到底由哪一个<code>server</code>块来处理这个请求。</p>
+<p><code>server_name</code>与<code>host</code>匹配优先级如下：</p>
 <ol>
 <li>完全匹配</li>
-<li>通配符在前的，如*.test.com</li>
-<li>在后的，如<a target="_blank" rel="noopener" href="http://www.test/">www.test</a>.*</li>
-<li>正则匹配，如~^.www.test.com$</li>
+<li>通配符在前的，如<code>*.test.com</code></li>
+<li>在后的，如<code>www.test.*</code></li>
+<li>正则匹配，如<code>~^\.www\.test\.com$</code></li>
 <li>如果都不匹配<ol>
-<li>优先选择listen配置项后有default或default_server的</li>
-<li>找到匹配listen端口的第一个server块</li>
+<li>优先选择<code>listen</code>配置项后有<code>default</code>或<code>default_server</code>的</li>
+<li>找到匹配<code>listen</code>端口的第一个<code>server</code>块</li>
 </ol>
 </li>
 </ol>
